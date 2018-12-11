@@ -8,6 +8,7 @@ import org.apache.ibatis.session.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        // 変更前DB
         try (InputStream in = Main.class.getResourceAsStream("/org/satoshii/portfolio/data/mybatis-config-db1.xml")) {
             SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
             try (SqlSession session = factory.openSession()) {
@@ -24,6 +25,8 @@ public class Main {
                 // System.out.println(rosters);
             }
         }
+        
+        // 変更後DB
         try (InputStream in = Main.class.getResourceAsStream("/org/satoshii/portfolio/data/mybatis-config-db2.xml")) {
             SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
             try (SqlSession session = factory.openSession()) {

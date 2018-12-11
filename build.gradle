@@ -6,6 +6,7 @@ plugins {
 }
 
 mainClassName = 'org.satoshii.portfolio.Main'
+// mainClassName = 'org.satoshii.portfolio.db.Main'
 
 repositories {
     mavenLocal()
@@ -19,22 +20,34 @@ dependencies {
     // annotationProcessor "com.google.auto.value:auto-value:1.6.2"
     compile 'org.mybatis:mybatis:3.4.6'
     
+    // 生JDBCマッピング版用
     compile group: 'org.apache.derby', name: 'derby', version: '10.14.1.0'
-    // compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
-    // compile 'commons-beanutils:commons-beanutils:1.9.3'
-    // compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.1'
+    compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+    compile 'commons-beanutils:commons-beanutils:1.9.3'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.1'
     
     // runtime files(dir: 'src/main/java/org/satoshii/portfolio/data', include: '*.xml')
 }
 
+// 標準入力を使う場合
+// run {
+// //   standardInput = System.in
+//     standardInput = new ByteArrayInputStream('201405'.getBytes())
+// }
+
 
 // TODO 初回のDB作成も書いておく
-// $ ij init.ddl
-// $ ij init.sql
+// $ ij db/init.ddl
+// $ ij db/init.sql
+// $ ij db/init2.ddl
+// $ ij db/init2.sql
+
 // シェル経由じゃないとできないかも
 // task initDb() {
-//     "ij init.ddl".execute()
-//     "ij init.sql".execute()
+//     "ij db/init.ddl".execute()
+//     "ij db/init.sql".execute()
+//     "ij db/init2.ddl".execute()
+//     "ij db/init2.sql".execute()
 // }
 
 // ant.condition(property: "os", value: "windows") { os(family: "windows") }
@@ -42,12 +55,12 @@ dependencies {
 // task initDb(type:Exec) {
 //     switch(ant.properties.os){
 //         case 'windows':
-//             commandLine 'cmd', '/c', 'ij', 'init.ddl'
-//             commandLine 'cmd', '/c', 'ij', 'init.sql'
+//             commandLine 'cmd', '/c', 'ij', 'db/init.ddl'
+//             commandLine 'cmd', '/c', 'ij', 'db/init.sql'
 //             break
 //         case 'unix':
-//             commandLine 'ij', 'init.ddl'
-//             commandLine 'ij', 'init.sql'
+//             commandLine 'ij', 'db/init.ddl'
+//             commandLine 'ij', 'db/init.sql'
 //             break
 //     }
 // }
