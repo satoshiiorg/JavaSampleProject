@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.satoshii.portfolio.MEmpMapper">
+  <!--<resultMap id="empResult" type="org.satoshii.portfolio.MEmp">-->
+    <!--<id property="id" column="author_id"/>-->
+    <!--<result property="username" column="author_username"/>-->
+    <!--<result property="password" column="author_password"/>-->
+    <!--<result property="email" column="author_email"/>-->
+    <!--<result property="bio" column="author_bio"/>-->
+  <!--</resultMap>-->
+  <!--<select id="selectMEmps" resultMap="empResult">-->
+  <!--  select * from m_emp where emp_no = #{empNo}-->
+  <!--</select>-->
+  
+  <select id="selectMEmps" resultType="org.satoshii.portfolio.MEmp">
+    select * from m_emp
+  </select>
+  
+</mapper>
