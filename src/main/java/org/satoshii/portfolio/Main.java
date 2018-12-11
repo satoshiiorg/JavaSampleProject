@@ -1,5 +1,7 @@
 package org.satoshii.portfolio;
 
+import org.satoshii.portfolio.data.*;
+import org.satoshii.portfolio.model.*;
 import java.io.*;
 import java.util.*;
 import org.apache.ibatis.session.*;
@@ -12,7 +14,7 @@ public class Main {
         //     User.create(3, "Baz"));
         // users.stream().map()
         // System.out.println(users);
-        try (InputStream in = Main.class.getResourceAsStream("/org/satoshii/portfolio/mybatis-config.xml")) {
+        try (InputStream in = Main.class.getResourceAsStream("/org/satoshii/portfolio/data/mybatis-config.xml")) {
             SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
             try (SqlSession session = factory.openSession()) {
                 MEmpMapper mapper = session.getMapper(MEmpMapper.class);

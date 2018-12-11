@@ -1,5 +1,6 @@
-package org.satoshii.portfolio;
+package org.satoshii.portfolio.data;
 
+import org.satoshii.portfolio.model.*;
 import org.apache.ibatis.annotations.Select;
 import java.util.*;
 
