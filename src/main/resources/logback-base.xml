@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Logback共通設定
+各アプリケーション側で ${app_name} を設定して使用
+-->
+<included>
+  <!--<property name="app_name" value="" />-->
+  <!--<property name="log_home" value="${user.home}${file.separator}log" />-->
+  <property name="log_home" value="${user.home}${file.separator}environment${file.separator}log" />
+  <property name="log_dir" value="${log_home}${file.separator}${app_name}" />
+  <property name="format" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${log_dir}/current.log</file>
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${log_dir}/%d{yyyyMM,aux}/%d{yyyyMMdd}.log</fileNamePattern>
+      <!--<fileNamePattern>${log_dir}/%d{yyyy-MM-dd_HH-mm}/%d{yyyyMMdd}.log</fileNamePattern>-->
+      <maxHistory>90</maxHistory>
+    </rollingPolicy>
+
+    <encoder>
+      <pattern>${format}</pattern>
+    </encoder>
+  </appender>
+
+<!--これレベル切り替え後で調べる-->
+  <root level="debug">
+    <appender-ref ref="FILE" />
+  </root>
+</included>

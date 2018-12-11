@@ -2,14 +2,22 @@ package org.satoshii.portfolio;
 
 import org.satoshii.portfolio.data.*;
 import org.satoshii.portfolio.model.*;
+
 import java.io.*;
 import java.util.*;
+
 import org.apache.ibatis.session.*;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        
+        Logger logger = LoggerFactory.getLogger(Main.class);
+        
         // 変更前DB
-        try (InputStream in = Main.class.getResourceAsStream("/org/satoshii/portfolio/data/mybatis-config-db1.xml")) {
+        try (InputStream in = Main.class.getResourceAsStream("/mybatis-config-db1.xml")) {
             SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
             try (SqlSession session = factory.openSession()) {
                 // MEmpMapper mEmpMapper = session.getMapper(MEmpMapper.class);
@@ -19,6 +27,7 @@ public class Main {
                 MDeptMapper mDeptMapper = session.getMapper(MDeptMapper.class);
                 List<MDept> depts = mDeptMapper.selectMDepts();
                 System.out.println(depts);
+                logger.debug("変更前m_dept: {}", depts);
                 
                 // TRosterMapper tRosterMapper = session.getMapper(TRosterMapper.class);
                 // List<TRoster> rosters = tRosterMapper.selectTRosters();
@@ -27,7 +36,7 @@ public class Main {
         }
         
         // 変更後DB
-        try (InputStream in = Main.class.getResourceAsStream("/org/satoshii/portfolio/data/mybatis-config-db2.xml")) {
+        try (InputStream in = Main.class.getResourceAsStream("/mybatis-config-db2.xml")) {
             SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
             try (SqlSession session = factory.openSession()) {
                 // MEmpMapper mEmpMapper = session.getMapper(MEmpMapper.class);
@@ -37,6 +46,7 @@ public class Main {
                 MDeptWithWorkTimeMapper mDeptMapper = session.getMapper(MDeptWithWorkTimeMapper.class);
                 List<MDeptWithWorkTime> depts = mDeptMapper.selectMDeptWithWorkTimes();
                 System.out.println(depts);
+                logger.debug("変更後m_dept: {}", depts);
                 
                 // TRosterMapper tRosterMapper = session.getMapper(TRosterMapper.class);
                 // List<TRoster> rosters = tRosterMapper.selectTRosters();

@@ -3,6 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <!-- 変更前DB用設定 -->
+<!-- org.satoshii.portfolio.data 配下に置くのが標準のようだが -->
 <configuration>
   <settings>
     <setting name="mapUnderscoreToCamelCase" value="true"/>
