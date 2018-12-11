@@ -12,14 +12,13 @@
       <dataSource type="POOLED">
         <property name="driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
         <property name="url" value="jdbc:derby:db/Portfolio"/>
+        <!--<property name="url" value="jdbc:derby:db/Portfolio2"/>-->
         <!--<property name="username" value="test"/>-->
         <!--<property name="password" value="test"/>-->
       </dataSource>
     </environment>
   </environments>
   <mappers>
-    <!--<mapper resource="org/satoshii/portfolio/data/MEmpMapper.xml"/>-->
-    <!--<mapper resource="org/satoshii/portfolio/data/MDeptMapper.xml"/>-->
     <package name="org.satoshii.portfolio.data"/>
   </mappers>
 </configuration>

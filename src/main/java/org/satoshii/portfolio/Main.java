@@ -8,12 +8,6 @@ import org.apache.ibatis.session.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        // List<User> users = Arrays.asList(
-        //     User.create(1, "Foo"),
-        //     User.create(2, "Bar"),
-        //     User.create(3, "Baz"));
-        // users.stream().map()
-        // System.out.println(users);
         try (InputStream in = Main.class.getResourceAsStream("/org/satoshii/portfolio/data/mybatis-config.xml")) {
             SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
             try (SqlSession session = factory.openSession()) {
@@ -24,7 +18,6 @@ public class Main {
                 MDeptMapper mDeptMapper = session.getMapper(MDeptMapper.class);
                 List<MDept> depts = mDeptMapper.selectMDepts();
                 System.out.println(depts);
-                
                 
                 TRosterMapper tRosterMapper = session.getMapper(TRosterMapper.class);
                 List<TRoster> rosters = tRosterMapper.selectTRosters();

@@ -1,11 +1,11 @@
-connect 'jdbc:derby:db/Portfolio;create=true';
+connect 'jdbc:derby:db/Portfolio2;create=true';
 
 insert into m_dept values
-(10, 'sales'),
-(21, 'dev1'),
-(22, 'dev2'),
-(30, 'account'),
-(40, 'newbiz');
+(10, 'sales',   '0900',  8, '1200', 30, 0, 6),
+(21, 'dev1',    '0915', 10, '1230', 60, 1, 2),
+(22, 'dev2',    '0915', 12, '1300', 90, 3, 4),
+(30, 'account', '1000',  5, '1430', 30, 0, 5),
+(40, 'newbiz',  '0930',  8, '1200', 60, 0, 6);
 
 insert into m_emp values
 (101, 'Smith', 10, 1),
