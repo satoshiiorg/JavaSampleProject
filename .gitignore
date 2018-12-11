@@ -2,4 +2,6 @@
 build
 gradle
 db/Portfolio
+db/Portfolio2
 *.log
+wip
