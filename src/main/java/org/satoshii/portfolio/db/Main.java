@@ -1,7 +1,7 @@
 package org.satoshii.portfolio.db;
 
 import org.satoshii.portfolio.db.*;
-import org.satoshii.portfolio.model.*;
+import org.satoshii.portfolio.bean.*;
 
 import java.sql.*;
 import java.util.*;

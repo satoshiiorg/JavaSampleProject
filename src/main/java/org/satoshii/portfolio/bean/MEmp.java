@@ -1,4 +1,4 @@
-package org.satoshii.portfolio.model;
+package org.satoshii.portfolio.bean;
 
 import lombok.*;
 
