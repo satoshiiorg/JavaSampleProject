@@ -8,4 +8,8 @@ public class MEmp {
     private String empNm;
     private int deptNo;
     private int sexFlg;
+    
+    public Sex getSex() {
+        return Sex.of(sexFlg);
+    }
 }

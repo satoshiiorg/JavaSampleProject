@@ -18,6 +18,8 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="org/satoshii/portfolio/data/MEmpMapper.xml"/>
+    <!--<mapper resource="org/satoshii/portfolio/data/MEmpMapper.xml"/>-->
+    <!--<mapper resource="org/satoshii/portfolio/data/MDeptMapper.xml"/>-->
+    <package name="org.satoshii.portfolio.data"/>
   </mappers>
 </configuration>
